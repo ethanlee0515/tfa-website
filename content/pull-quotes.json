@@ -1,0 +1,236 @@
+{
+  "shutdown-negotiation-ends": {
+    "quotes": [
+      {
+        "text": "When SNAP benefits ended, many states declared state of emergencies to allocate state funds to partially continue providing benefits.",
+        "afterContains": "54-45 vote"
+      },
+      {
+        "text": "By the 36th day of the shutdown, the CR had been voted on 14 times, failing on a 54-44 vote in similar style as the previous votes, with most Republicans for and most Democrats against the bill.",
+        "afterContains": "First Circuit"
+      }
+    ]
+  },
+  "shutdown-showdown": {
+    "quotes": [
+      {
+        "text": "Despite one's political beliefs, the shutdown is objectively bad. Its effects are seen throughout the country, hitting some of the poorest Americans.",
+        "afterContains": "filibuster has not changed"
+      },
+      {
+        "text": "Remind our lawmakers that no gold medals are given for breaking shutdown records, but a crown of righteousness is given to those who take care of the lost.",
+        "afterContains": "optimistic"
+      }
+    ],
+    "truncateBefore": "5 The Looming Threat"
+  },
+  "shutdown-economics": {
+    "quotes": [
+      {
+        "text": "The government shutdown is not just an inconvenience but an unnecessary punishment inflicted on those who keep the country running.",
+        "afterContains": "live comfortably"
+      },
+      {
+        "text": "It poses the question: has partisan politics overtaken the basic responsibility of governance?",
+        "afterContains": "tax revenue"
+      }
+    ],
+    "truncateBefore": "Harvard University"
+  },
+  "brown-bold-refusal": {
+    "quotes": [
+      {
+        "text": "Brown is more financially and politically independent than many other institutions, allowing it to decline the compact.",
+        "afterContains": "political expedience"
+      },
+      {
+        "text": "When the government offers funding only to the schools that follow its rules, universities lose their ability for self-government regarding what to teach, what to study, and what to value.",
+        "afterContains": "political bargaining chips"
+      }
+    ],
+    "truncateBefore": "The Cost of Inaction"
+  },
+  "morocco-gen-z-protests": {
+    "quotes": [
+      {
+        "text": "The 'Gen Z' protests mirror similar unrest sweeping countries like Nepal, Kenya and Madagascar. Demonstrators have harnessed anger about conditions in hospitals and schools to express outrage over the government's spending priorities.",
+        "afterContains": "Casablanca, Tangier"
+      },
+      {
+        "text": "The right to health, education and a dignified life is not an empty slogan but a serious demand.",
+        "afterContains": "Discord statement"
+      }
+    ]
+  },
+  "china-hanwha-sanctions": {
+    "quotes": [
+      {
+        "text": "China just weaponized shipbuilding. Beijing is signaling it will hit third-country firms that help Washington counter China's maritime dominance.",
+        "afterContains": "weaponized interdependence"
+      },
+      {
+        "text": "Given the current geopolitical climate, such deep involvement could easily turn into a political risk.",
+        "afterContains": "Hanwha Philly Shipyard"
+      }
+    ]
+  },
+  "higher-education-compact": {
+    "quotes": [
+      {
+        "text": "The compact offers nothing less than government control of a university's basic and necessary freedoms—the freedoms to decide who we teach, what we teach, and who teaches.",
+        "afterContains": "American Council on Education"
+      },
+      {
+        "text": "Already, seven of the nine universities openly rejected the compact, emphasizing the importance of protecting institutional independence.",
+        "afterContains": "Vanderbilt University"
+      }
+    ],
+    "truncateBefore": "15 Who Gets"
+  },
+  "gerrymandering-do-all-votes-count": {
+    "quotes": [
+      {
+        "text": "In August, Texas announced they were redistricting mid-decade, a political tactic designed to try to flip the House for Republicans.",
+        "afterContains": "redistricting war"
+      },
+      {
+        "text": "Clearly, this is unfair—the party that wins more votes should have control of the government, and five percentage points is not even close to being within a potential margin of error.",
+        "afterContains": "218217"
+      }
+    ]
+  },
+  "who-gets-to-be-a-refugee": {
+    "quotes": [
+      {
+        "text": "In South Korea, legitimacy rests on ethnic sameness, while in Germany it rests on a humanitarian self-image that is increasingly conditional.",
+        "afterContains": "constructed by states"
+      },
+      {
+        "text": "Legitimacy is determined not by the severity of persecution but by the moral recognition offered by the host society.",
+        "afterContains": "exile ideology"
+      }
+    ],
+    "truncateBefore": "South Korea's national identity privileges"
+  },
+  "explaining-the-indictments": {
+    "quotes": [
+      {
+        "text": "Comey publicly criticized Trump for being \"self-interested.\"",
+        "afterContains": "A Higher Loyalty"
+      },
+      {
+        "text": "Bolton called Trump \"corrupt\" and \"poorly informed.\"",
+        "afterContains": "The Room Where It Happened"
+      }
+    ]
+  },
+  "nepal-digital-blackout": {
+    "quotes": [
+      {
+        "text": "When governments begin to equate digital expression with instability, the threshold for censorship lowers and democratic freedoms erode.",
+        "afterContains": "political control"
+      },
+      {
+        "text": "Such restrictions ultimately provoke deeper resistance, undermining the very stability governments claim to protect.",
+        "afterContains": "democratic expression"
+      }
+    ]
+  },
+  "civics-isnt-extra-credit": {
+    "quotes": [
+      {
+        "text": "Studies have shown that those who receive civic education are more likely to vote, participate in the community, and express their ideas to their representatives.",
+        "afterContains": "three branches of government"
+      },
+      {
+        "text": "100 percent of the people complain, only 27 percent come out to vote…they don't realize how much power they have.",
+        "afterContains": "Assemblyman Scharfenberger"
+      }
+    ],
+    "truncateBefore": "New Jersey Assembly"
+  },
+  "market-correction-threat": {
+    "quotes": [
+      {
+        "text": "A 50% duty can be planned around, yet a trading partner who might slap a new tax on tomorrow, roll it back next week, or tie it to an unrelated demand about Greenland cannot be.",
+        "afterContains": "India-US trade deal collapsed"
+      },
+      {
+        "text": "The alliance might even scale bigger than a hedge, creating a third economic bloc that can set rules without Washington or Beijing.",
+        "afterContains": "unpredictability of American trade"
+      }
+    ]
+  },
+  "venezuela-oil-politics": {
+    "quotes": [
+      {
+        "text": "Does this mean any large country can indict the ruler of a smaller adjacent country and take that person out?",
+        "afterContains": "Senator Mark Warner"
+      },
+      {
+        "text": "The Venezuelan people, who endured nearly eight million emigrants departing under Maduro and an economy that left average citizens earning roughly $1,400 per year, deserve more than a transition from one form of resource extraction to another.",
+        "afterContains": "Brookings Institution"
+      }
+    ]
+  },
+  "sudan-silent-stalemate": {
+    "quotes": [
+      {
+        "text": "The international community often speaks of 'never again.' Yet in 2026, the silence surrounding Sudan is deafening.",
+        "afterContains": "curated abandonment"
+      },
+      {
+        "text": "We have created a world where humanitarian aid follows the camera lens; in Sudan, the lens has been intentionally shattered.",
+        "afterContains": "emotional currency"
+      }
+    ]
+  },
+  "china-investment-africa": {
+    "quotes": [
+      {
+        "text": "China never asked us. We never offered it.",
+        "afterContains": "Karunasena Kodituwakku"
+      },
+      {
+        "text": "Without the participation of China in this endeavor, African countries still stand to suffer.",
+        "afterContains": "Covid-19 pandemic"
+      }
+    ]
+  },
+  "trump-administration-climate": {
+    "quotes": [
+      {
+        "text": "President Trump justified his repeal of the ruling by calling it a \"radical\" foundation for \"one of the greatest scams in history.\"",
+        "afterContains": "endangerment finding"
+      },
+      {
+        "text": "State policies such as Illinois' Clean and Equitable Jobs Act produce the best results when \"federal policy supports, rather than diminishes, state climate progress.\"",
+        "afterContains": "24 states suing"
+      }
+    ]
+  },
+  "maxwell-dilemma": {
+    "quotes": [
+      {
+        "text": "If this committee and the American public truly want to hear the unfiltered truth about what happened, there is a straightforward path.",
+        "afterContains": "David Oscar Markus"
+      },
+      {
+        "text": "Ghislaine Maxwell is the last person on Earth who should ever be granted clemency.",
+        "afterContains": "Senator Jacky Rosen"
+      }
+    ]
+  },
+  "kristi-noem-firings": {
+    "quotes": [
+      {
+        "text": "I wasn't thrilled with it. I spent less money than that to become president. I didn't know about the campaign.",
+        "afterContains": "publicly denied Noem"
+      },
+      {
+        "text": "Neither departure had followed the slow and unraveling process that typically precedes resignations.",
+        "afterContains": "swift removals"
+      }
+    ]
+  }
+}
