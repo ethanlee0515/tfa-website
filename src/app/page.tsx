@@ -10,6 +10,9 @@ import { getAllArticles, getFeaturedCarousel } from "@/lib/content";
 import { getSiteContent } from "@/lib/site-content";
 import { SECTIONS, type Section } from "@/lib/types";
 
+/** Refresh from Sanity at least every minute even without a webhook. */
+export const revalidate = 60;
+
 export default async function HomePage() {
   const [featuredSlides, all, site] = await Promise.all([
     getFeaturedCarousel(5),

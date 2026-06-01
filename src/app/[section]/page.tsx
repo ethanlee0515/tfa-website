@@ -9,6 +9,9 @@ import { SECTIONS, SECTION_LABELS, type Section } from "@/lib/types";
 
 type Props = { params: Promise<{ section: string }> };
 
+/** Refresh from Sanity at least every minute even without a webhook. */
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   return SECTIONS.map((section) => ({ section }));
 }
