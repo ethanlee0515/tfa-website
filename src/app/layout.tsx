@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Montserrat, Source_Serif_4 } from "next/font/google";
+import { Manrope, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 
-const montserrat = Montserrat({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -15,6 +15,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.tfa-lawrenceville.org"),
   title: {
     default: "The First Amendment | Lawrenceville School",
     template: "%s | The First Amendment",
@@ -33,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${sourceSerif.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${sourceSerif.variable}`}>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );

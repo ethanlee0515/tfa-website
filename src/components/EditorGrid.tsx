@@ -10,36 +10,29 @@ function EditorRow({
   photoClassName?: string;
 }) {
   return (
-    <article className="flex gap-5 border-b border-tfa-ink/10 py-7 last:border-b-0 sm:gap-6">
-      {editor.photo ? (
-        <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden rounded-full bg-tfa-charcoal/5 ring-1 ring-tfa-ink/10 sm:h-20 sm:w-20">
+    <article className="flex items-center gap-5 border-b border-tfa-ink/20 py-6 last:border-b-0">
+      {editor.photo && (
+        <div className="relative h-24 w-20 shrink-0 overflow-hidden bg-tfa-ink/5 sm:h-28 sm:w-24">
           <Image
             src={editor.photo}
             alt={editor.name}
             fill
             className={photoClassName}
-            sizes="80px"
+            sizes="96px"
           />
         </div>
-      ) : (
-        <div
-          className="flex h-[4.5rem] w-[4.5rem] shrink-0 items-center justify-center rounded-full bg-tfa-charcoal/5 font-display text-sm text-tfa-muted ring-1 ring-tfa-ink/10 sm:h-20 sm:w-20"
-          aria-hidden
-        >
-          {editor.name
-            .split(" ")
-            .map((n) => n[0])
-            .join("")}
-        </div>
       )}
-      <div className="min-w-0 flex-1 pt-0.5">
-        <h3 className="font-serif text-xl font-semibold text-tfa-ink">
+      <div className="min-w-0 flex-1">
+        <h3 className="font-serif text-xl leading-tight font-semibold tracking-[-0.015em] text-tfa-ink sm:text-2xl">
           {editor.name}
           {editor.classYear && (
-            <span className="font-normal text-tfa-muted"> &apos;{editor.classYear}</span>
+            <span className="font-normal text-tfa-muted">
+              {" "}
+              &apos;{editor.classYear}
+            </span>
           )}
         </h3>
-        <p className="mt-1 font-display text-[0.62rem] font-semibold tracking-[0.16em] text-tfa-red uppercase">
+        <p className="mt-2 font-display text-[0.6875rem] leading-relaxed text-tfa-muted">
           {editor.role}
         </p>
       </div>
@@ -50,59 +43,60 @@ function EditorRow({
 export function EditorGrid({ editors }: { editors: Editor[] }) {
   const eic = editors.filter(isEditorInChief);
   const exec = editors.filter((e) => e.role === "Executive Editor");
-  const ethan = eic.find((e) => e.name === "Ethan Lee") ?? eic[0];
+  const sharedPhoto =
+    eic[0]?.photo && eic.every((editor) => editor.photo === eic[0].photo)
+      ? eic[0].photo
+      : undefined;
 
   return (
-    <div className="space-y-12">
-      {ethan && (
-        <section className="rounded-sm border border-tfa-ink/10 bg-white px-5 py-6 sm:px-8 sm:py-8">
-          <p className="font-display text-[0.62rem] font-semibold tracking-[0.18em] text-tfa-red uppercase">
-            Editors-in-Chief
-          </p>
-          <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
-            {ethan.photo && (
-              <div className="mx-auto shrink-0 sm:mx-0">
-                <div className="relative h-36 w-52 overflow-hidden rounded-sm bg-tfa-charcoal/5 ring-1 ring-tfa-ink/10 sm:h-40 sm:w-56">
-                  <div className="absolute inset-0 scale-[1.4]">
-                    <Image
-                      src={ethan.photo}
-                      alt="Ethan Lee and Jamie Ho, Editors-in-Chief"
-                      fill
-                      className="object-cover object-[center_40%]"
-                      sizes="224px"
-                    />
-                  </div>
-                </div>
+    <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-12">
+      {eic.length > 0 && (
+        <section className="border-t border-tfa-ink/20 pt-5">
+          <p className="eyebrow text-tfa-muted">Editors-in-Chief</p>
+          {sharedPhoto ? (
+            <div className="mt-6">
+              <div className="relative aspect-[3/2] max-w-[440px] overflow-hidden bg-tfa-ink/5">
+                <Image
+                  src={sharedPhoto}
+                  alt={`${eic.map((editor) => editor.name).join(" and ")}, Editors-in-Chief`}
+                  fill
+                  className="object-cover object-[center_40%]"
+                  sizes="(max-width: 640px) 90vw, 440px"
+                />
               </div>
-            )}
-            <div className="min-w-0 flex-1 space-y-5 sm:space-y-4">
+              <div className="mt-5 grid max-w-[440px] gap-4 min-[480px]:grid-cols-2">
+                {eic.map((editor) => (
+                  <article key={editor.name}>
+                    <h3 className="font-serif text-xl leading-tight font-semibold tracking-[-0.015em] text-tfa-ink sm:text-2xl">
+                      {editor.name}
+                      {editor.classYear && (
+                        <span className="font-normal text-tfa-muted">
+                          {" "}
+                          &apos;{editor.classYear}
+                        </span>
+                      )}
+                    </h3>
+                    <p className="mt-2 font-display text-[0.6875rem] leading-relaxed text-tfa-muted">
+                      {editor.role}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div>
               {eic.map((editor) => (
-                <article key={editor.name}>
-                  <h3 className="font-serif text-xl font-semibold text-tfa-ink sm:text-2xl">
-                    {editor.name}
-                    {editor.classYear && (
-                      <span className="font-normal text-tfa-muted">
-                        {" "}
-                        &apos;{editor.classYear}
-                      </span>
-                    )}
-                  </h3>
-                  <p className="mt-1 font-display text-[0.62rem] font-semibold tracking-[0.16em] text-tfa-red uppercase">
-                    {editor.role}
-                  </p>
-                </article>
+                <EditorRow key={editor.name} editor={editor} />
               ))}
             </div>
-          </div>
+          )}
         </section>
       )}
 
       {exec.length > 0 && (
-        <section>
-          <p className="font-display text-[0.62rem] font-semibold tracking-[0.18em] text-tfa-muted uppercase">
-            Executive Editors
-          </p>
-          <div className="mt-4 divide-y divide-tfa-ink/10 rounded-sm border border-tfa-ink/10 bg-white px-5 sm:px-8">
+        <section className="border-t border-tfa-ink/20 pt-5">
+          <p className="eyebrow text-tfa-muted">Executive Editors</p>
+          <div>
             {exec.map((editor) => (
               <EditorRow key={editor.name} editor={editor} />
             ))}

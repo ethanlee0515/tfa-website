@@ -5,4 +5,5 @@ export const CURRENT_ISSUE = {
   year: 2026,
   coverImage: "/covers/spring-2026.png",
   coverAlt: "The First Amendment Spring 2026 issue cover",
+  coverCredit: "Art by Teri Kim ’27",
 } as const;

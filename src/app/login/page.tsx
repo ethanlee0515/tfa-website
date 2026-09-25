@@ -1,19 +1,27 @@
 import Link from "next/link";
 import { Masthead } from "@/components/Masthead";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SiteNav } from "@/components/SiteNav";
 
 const studioConfigured = Boolean(process.env.NEXT_PUBLIC_SANITY_PROJECT_ID);
 
 export default function LoginPage() {
   return (
     <>
-      <header className="border-b border-tfa-ink/10 bg-tfa-paper">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
+      <header className="border-b border-tfa-ink/25">
+        <div className="page-shell pt-5 sm:pt-8">
           <Masthead showIssue={false} />
+          <SiteNav />
         </div>
       </header>
 
-      <main className="mx-auto max-w-lg px-4 py-16 sm:px-6">
+      <main
+        id="main-content"
+        className="mx-auto max-w-xl px-5 py-12 sm:px-10 sm:py-16"
+      >
         <h1 className="font-serif text-3xl font-semibold text-tfa-ink">
           Editor login
         </h1>
@@ -37,14 +45,16 @@ export default function LoginPage() {
             </p>
           </div>
         ) : (
-          <div className="mt-10 rounded border border-tfa-ink/15 bg-white p-6">
+          <div className="mt-10 border-y border-tfa-rule py-6">
             <p className="font-display text-xs font-semibold tracking-[0.15em] text-tfa-red uppercase">
               Setup required
             </p>
             <p className="mt-3 text-sm leading-relaxed text-tfa-muted">
               The editor backend is not connected yet. An Editor-in-Chief or
               faculty advisor needs to create a Sanity project and add{" "}
-              <code className="text-tfa-ink">NEXT_PUBLIC_SANITY_PROJECT_ID</code>{" "}
+              <code className="text-tfa-ink">
+                NEXT_PUBLIC_SANITY_PROJECT_ID
+              </code>{" "}
               to the site environment. See the publishing steps below.
             </p>
           </div>
@@ -55,27 +65,36 @@ export default function LoginPage() {
             Publishing workflow
           </h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-tfa-muted">
-            <li>Sign in at <Link href="/studio" className="text-tfa-red hover:underline">/studio</Link></li>
             <li>
-              Open <strong className="text-tfa-ink">Site &amp; About page</strong> to
+              Sign in at{" "}
+              <Link href="/studio" className="text-tfa-red hover:underline">
+                /studio
+              </Link>
+            </li>
+            <li>
+              Open{" "}
+              <strong className="text-tfa-ink">Site &amp; About page</strong> to
               edit the About page and homepage “Why this issue matters”
             </li>
             <li>
-              Under <strong className="text-tfa-ink">Editors &amp; board</strong>, update
-              leadership photos and the full roster
+              Under{" "}
+              <strong className="text-tfa-ink">Editors &amp; board</strong>,
+              update leadership photos and the full roster
             </li>
             <li>
               In an <strong className="text-tfa-ink">Article</strong>, click + →{" "}
-              <strong className="text-tfa-ink">Pull quote</strong> for highlighted sentences
+              <strong className="text-tfa-ink">Pull quote</strong> for
+              highlighted sentences
             </li>
-            <li>Set <strong className="text-tfa-ink">status</strong> to Published</li>
+            <li>
+              Set <strong className="text-tfa-ink">status</strong> to Published
+            </li>
             <li>Article appears on the public site within ~1 minute</li>
           </ol>
         </section>
 
         <p className="mt-10 text-sm text-tfa-muted">
-          Public readers never see this page unless they know the URL. Only
-          invited Sanity members can publish.
+          Publishing is available only to invited Sanity members.
         </p>
       </main>
 

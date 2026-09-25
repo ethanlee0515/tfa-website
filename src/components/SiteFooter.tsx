@@ -2,26 +2,45 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 border-t border-tfa-ink/10 bg-tfa-black text-white">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <p className="font-display text-center text-lg font-bold tracking-[0.12em] uppercase">
-          The First Amendment
-        </p>
-        <p className="mt-2 text-center text-sm text-white/60">
-          A student publication of The Lawrenceville School
-        </p>
-        <p className="mt-6 text-center text-sm leading-relaxed text-white/50">
+    <footer className="page-shell mt-12 pb-6 sm:mt-20">
+      <div className="grid gap-8 border-t-2 border-tfa-ink pt-8 pb-10 md:grid-cols-[1.2fr_1fr] md:gap-16">
+        <div>
+          <Link
+            href="/"
+            className="font-serif text-3xl font-semibold tracking-[-0.04em]"
+          >
+            The First Amendment.
+          </Link>
+          <p className="mt-3 font-display text-xs text-tfa-muted">
+            A student publication of The Lawrenceville School
+          </p>
+        </div>
+        <p className="max-w-lg text-lg leading-relaxed text-tfa-muted">
           Dedicated to freedom of expression and the belief that all voices have
           a role in shaping our democracy.
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-6 font-display text-xs tracking-[0.15em] uppercase">
-          <Link href="/about" className="text-white/80 hover:text-tfa-red">
-            About
-          </Link>
-        </div>
-        <p className="mt-10 text-center text-xs text-white/40">
-          © {new Date().getFullYear()} The First Amendment
-        </p>
+      </div>
+      <div className="flex flex-wrap items-center justify-between gap-5 border-t border-tfa-rule pt-5 font-display text-[11px] text-tfa-muted">
+        <p>© {new Date().getFullYear()} The First Amendment</p>
+        <nav aria-label="Footer">
+          <ul className="flex flex-wrap gap-x-6 gap-y-3">
+            <li>
+              <Link href="/about" className="hover:text-tfa-red">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/login" className="hover:text-tfa-red">
+                Editor login
+              </Link>
+            </li>
+            <li>
+              <a href="/feed.xml" className="hover:text-tfa-red">
+                RSS feed
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </footer>
   );

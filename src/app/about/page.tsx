@@ -29,127 +29,137 @@ export default async function AboutPage() {
 
   return (
     <>
-      <header className="border-b border-tfa-ink/10 bg-tfa-paper">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
+      <header className="border-b border-tfa-ink/25">
+        <div className="page-shell pt-7 sm:pt-9">
           <Masthead issueLabel={site.currentIssueLabel} />
-          <div className="mt-8">
-            <SiteNav />
-          </div>
+          <SiteNav />
         </div>
       </header>
 
-      <section className="border-b border-tfa-ink/10 bg-tfa-black text-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-          <p className="font-display text-[0.65rem] font-semibold tracking-[0.3em] text-tfa-red uppercase">
-            {site.aboutMission.eyebrow}
-          </p>
-          <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold leading-tight sm:text-5xl">
-            {site.aboutMission.headline}
-          </h1>
-          <div className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 [&_p]:text-white/80">
-            <RichTextBody value={site.aboutMission.body} />
+      <main id="main-content" className="page-shell py-10 sm:py-14">
+        <section
+          className="grid gap-6 border-b border-tfa-ink/25 pb-10 sm:pb-14 lg:grid-cols-[1.3fr_1fr] lg:gap-14"
+          aria-labelledby="about-heading"
+        >
+          <div>
+            <p className="eyebrow text-tfa-red">{site.aboutMission.eyebrow}</p>
+            <h1
+              id="about-heading"
+              className="mt-4 max-w-[23ch] font-serif text-[2.5rem] leading-[1.12] font-semibold tracking-[-0.025em] sm:text-5xl"
+            >
+              {site.aboutMission.headline}
+            </h1>
           </div>
-        </div>
-      </section>
+          <RichTextBody
+            value={site.aboutMission.body}
+            className="max-w-[48ch] lg:self-end"
+          />
+        </section>
 
-      <main className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-        <div className="grid gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,340px)] lg:gap-20">
+        <div className="mt-10 grid gap-10 sm:mt-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)] lg:gap-16">
           <article>
-            <p className="font-display text-xs font-semibold tracking-[0.22em] text-tfa-red uppercase">
-              {site.aboutLetter.eyebrow}
-            </p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold text-tfa-ink">
+            <p className="eyebrow text-tfa-red">{site.aboutLetter.eyebrow}</p>
+            <h2 className="mt-3 max-w-[28ch] font-serif text-3xl leading-tight font-semibold tracking-[-0.02em] text-tfa-ink sm:text-4xl">
               {site.aboutLetter.title}
             </h2>
-            <div className="mt-8">
+            <div className="mt-6 max-w-[68ch]">
               <RichTextBody value={site.aboutLetter.body} />
             </div>
             {site.aboutLetter.signoff && (
-              <p className="mt-6 font-display text-xs tracking-[0.15em] text-tfa-muted uppercase">
+              <p className="mt-6 font-display text-xs leading-relaxed font-medium text-tfa-muted">
                 {site.aboutLetter.signoff}
               </p>
             )}
           </article>
 
-          <aside className="lg:pt-2">
-            <div className="border border-tfa-ink/10 bg-white p-6 sm:p-8">
-              <h2 className="font-display text-xs font-semibold tracking-[0.22em] text-tfa-muted uppercase">
-                At a glance
-              </h2>
-              <dl className="mt-6 space-y-5 text-sm">
+          <aside className="border-t border-tfa-ink/25 pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+            <div>
+              <h2 className="eyebrow text-tfa-ink">At a glance</h2>
+              <dl className="mt-6 space-y-5">
                 <div>
-                  <dt className="font-display text-[0.62rem] tracking-[0.14em] text-tfa-muted uppercase">
+                  <dt className="font-display text-[0.6875rem] font-semibold text-tfa-muted">
                     Publication
                   </dt>
-                  <dd className="mt-1 font-serif text-base text-tfa-ink">
+                  <dd className="mt-1 font-serif text-lg text-tfa-ink">
                     {site.aboutSidebar.publication}
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-display text-[0.62rem] tracking-[0.14em] text-tfa-muted uppercase">
+                  <dt className="font-display text-[0.6875rem] font-semibold text-tfa-muted">
                     Current issue
                   </dt>
-                  <dd className="mt-1 font-serif text-base text-tfa-ink">
+                  <dd className="mt-1 font-serif text-lg text-tfa-ink">
                     {site.currentIssueLabel}
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-display text-[0.62rem] tracking-[0.14em] text-tfa-muted uppercase">
+                  <dt className="font-display text-[0.6875rem] font-semibold text-tfa-muted">
                     Sections
                   </dt>
-                  <dd className="mt-1 leading-relaxed text-tfa-muted">
+                  <dd className="mt-1 text-base leading-relaxed text-tfa-ink">
                     Domestic · International · Economics · Features
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-display text-[0.62rem] tracking-[0.14em] text-tfa-muted uppercase">
+                  <dt className="font-display text-[0.6875rem] font-semibold text-tfa-muted">
                     For writers
                   </dt>
-                  <dd className="mt-1 leading-relaxed text-tfa-muted">
+                  <dd className="mt-1 text-base leading-relaxed text-tfa-ink">
                     {site.aboutSidebar.forWriters}
                   </dd>
                 </div>
               </dl>
               <Link
-                href="/international"
-                className="mt-8 inline-flex w-full items-center justify-center border border-tfa-ink/15 bg-tfa-paper px-4 py-3 font-display text-[0.65rem] font-semibold tracking-[0.18em] text-tfa-ink uppercase transition-colors hover:border-tfa-red hover:text-tfa-red"
+                href="/#sections"
+                className="editorial-link mt-6 inline-block font-display text-xs font-semibold text-tfa-red"
               >
-                Read the latest issue
+                Browse all sections
               </Link>
             </div>
           </aside>
         </div>
 
-        <section className="mt-20 border-t border-tfa-ink/10 pt-20">
+        <section
+          className="mt-12 border-t border-tfa-ink/25 pt-8 sm:mt-16 sm:pt-10"
+          aria-labelledby="leadership-heading"
+        >
           <div className="max-w-2xl">
-            <p className="font-display text-xs font-semibold tracking-[0.22em] text-tfa-red uppercase">
-              Leadership
-            </p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold text-tfa-ink">
+            <p className="eyebrow text-tfa-red">Leadership</p>
+            <h2
+              id="leadership-heading"
+              className="mt-3 font-serif text-3xl font-semibold tracking-[-0.02em] text-tfa-ink sm:text-4xl"
+            >
               Editorial leadership
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-tfa-muted">
               {site.aboutLeadershipIntro}
             </p>
           </div>
-          <div className="mt-10 max-w-3xl">
+          <div className="mt-8">
             <EditorGrid editors={leadership} />
           </div>
         </section>
 
-        <section className="mt-20 border-t border-tfa-ink/10 pt-20">
+        <section
+          className="mt-12 border-t border-tfa-ink/25 pt-8 sm:mt-16 sm:pt-10"
+          aria-labelledby="board-heading"
+        >
           <div className="max-w-2xl">
-            <p className="font-display text-xs font-semibold tracking-[0.22em] text-tfa-red uppercase">
-              The board
-            </p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold text-tfa-ink">
+            <p className="eyebrow text-tfa-red">The board</p>
+            <h2
+              id="board-heading"
+              className="mt-3 font-serif text-3xl leading-tight font-semibold tracking-[-0.02em] text-tfa-ink sm:text-4xl"
+            >
               {site.currentIssueLabel} editorial board
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-tfa-muted">
               {site.aboutBoardIntro}
             </p>
           </div>
-          <div className="mt-12">
+          <div className="mt-8">
             <BoardRoster sections={boardSections} />
           </div>
         </section>

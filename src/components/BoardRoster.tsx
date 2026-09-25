@@ -1,9 +1,7 @@
 import type { BoardMember } from "@/lib/types";
 
 function formatName(member: BoardMember) {
-  return member.classYear
-    ? `${member.name} '${member.classYear}`
-    : member.name;
+  return member.classYear ? `${member.name} '${member.classYear}` : member.name;
 }
 
 export function BoardRoster({
@@ -12,22 +10,20 @@ export function BoardRoster({
   sections: { title: string; members: BoardMember[] }[];
 }) {
   return (
-    <div className="divide-y divide-tfa-ink/10 border-y border-tfa-ink/10">
+    <div className="divide-y divide-tfa-ink/20 border-t border-tfa-ink/20">
       {sections.map((section) => (
-        <section key={section.title} className="py-10 first:pt-0 last:pb-0">
-          <h2 className="font-display text-xs font-semibold tracking-[0.22em] text-tfa-muted uppercase">
-            {section.title}
-          </h2>
-          <ul className="mt-6 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+        <section
+          key={section.title}
+          className="grid gap-5 py-7 sm:grid-cols-[180px_1fr] sm:gap-8 sm:py-8"
+        >
+          <h3 className="eyebrow text-tfa-muted sm:pt-1">{section.title}</h3>
+          <ul className="grid gap-x-8 gap-y-5 min-[480px]:grid-cols-2">
             {section.members.map((member) => (
-              <li
-                key={`${section.title}-${member.name}`}
-                className="flex items-baseline justify-between gap-4 border-b border-tfa-ink/5 pb-4 sm:block sm:border-0 sm:pb-0"
-              >
-                <span className="font-serif text-base text-tfa-ink">
+              <li key={`${section.title}-${member.name}`} className="min-w-0">
+                <span className="font-serif text-lg leading-snug text-tfa-ink">
                   {formatName(member)}
                 </span>
-                <span className="shrink-0 font-display text-[0.62rem] tracking-[0.14em] text-tfa-muted uppercase sm:mt-1 sm:block">
+                <span className="mt-1 block font-display text-[0.6875rem] leading-relaxed text-tfa-muted">
                   {member.role}
                 </span>
               </li>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { CURRENT_ISSUE } from "@/lib/site";
 
@@ -7,70 +6,39 @@ type MastheadProps = {
   showTagline?: boolean;
   showIssue?: boolean;
   issueLabel?: string;
+  asTitle?: boolean;
 };
-
-const LOGO = {
-  light: "/tfa-logo-transparent.png",
-  dark: "/tfa-logo-white.png",
-  width: 220,
-  height: 220,
-} as const;
 
 export function Masthead({
   variant = "light",
   showTagline = true,
   showIssue = true,
-  issueLabel,
+  issueLabel = CURRENT_ISSUE.label,
+  asTitle = false,
 }: MastheadProps) {
-  const isDark = variant === "dark";
-  const issue = issueLabel ?? CURRENT_ISSUE.label;
-
+  const Title = asTitle ? "h1" : "p";
   return (
-    <header className={isDark ? "text-white" : "text-tfa-ink"}>
+    <div className={variant === "dark" ? "text-tfa-paper" : "text-tfa-ink"}>
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-current/25 pb-3 font-display text-[10px] font-semibold tracking-[0.09em] uppercase sm:text-[11px]">
+        <p>The Lawrenceville School</p>
+        {showIssue && <p>{issueLabel}</p>}
+      </div>
       <Link
         href="/"
-        className="group mx-auto flex max-w-2xl flex-col items-center"
+        className="inline-block py-5 sm:py-6"
         aria-label="The First Amendment — home"
       >
-        {showIssue && (
-          <p className="font-display text-[0.65rem] font-semibold tracking-[0.35em] text-tfa-red uppercase sm:text-xs">
-            {issue}
-          </p>
-        )}
-
-        <div className="mt-3">
-          <Image
-            src={isDark ? LOGO.dark : LOGO.light}
-            alt=""
-            width={LOGO.width}
-            height={LOGO.height}
-            className={`h-[4.5rem] w-auto object-contain sm:h-24 ${
-              isDark ? "drop-shadow-[0_2px_20px_rgba(0,0,0,0.45)]" : ""
-            }`}
-            priority
-            sizes="(max-width: 640px) 180px, 220px"
-            aria-hidden
-          />
-        </div>
-
-        <p
-          className={`mt-4 text-center font-serif text-[1.65rem] font-semibold leading-none tracking-[0.02em] sm:text-3xl ${
-            isDark ? "text-white" : "text-tfa-ink"
-          }`}
-        >
-          The First Amendment
-        </p>
-
-        {showTagline && (
-          <p
-            className={`mt-3 text-center font-display text-[0.7rem] tracking-[0.2em] uppercase sm:text-xs ${
-              isDark ? "text-white/75" : "text-tfa-muted"
-            }`}
-          >
-            A student publication of The Lawrenceville School
-          </p>
-        )}
+        <Title className="font-serif text-[clamp(2.5rem,6.25vw,5.25rem)] leading-[1.04] font-semibold tracking-[-0.055em]">
+          <span className="mr-[0.06em] font-normal italic">The</span> First
+          Amendment<span className="text-tfa-red">.</span>
+        </Title>
       </Link>
-    </header>
+      {showTagline && (
+        <p className="pb-5 font-display text-[11px] leading-relaxed text-tfa-muted sm:pb-6 sm:text-xs">
+          A student publication on politics, economics, and the world we
+          inherit.
+        </p>
+      )}
+    </div>
   );
 }

@@ -2,23 +2,9 @@ import type { ArticleBlock } from "@/lib/types";
 
 function PullQuote({ text }: { text: string }) {
   return (
-    <figure className="my-12 sm:my-14">
-      <blockquote className="relative mx-auto max-w-2xl px-8 text-center sm:px-12">
-        <span
-          aria-hidden
-          className="absolute top-0 bottom-0 left-0 flex w-3 justify-center gap-[3px]"
-        >
-          <span className="w-px bg-tfa-ink" />
-          <span className="w-px bg-tfa-ink" />
-        </span>
-        <span
-          aria-hidden
-          className="absolute top-0 right-0 bottom-0 flex w-3 justify-center gap-[3px]"
-        >
-          <span className="w-px bg-tfa-ink" />
-          <span className="w-px bg-tfa-ink" />
-        </span>
-        <p className="font-serif text-xl leading-snug font-semibold text-tfa-ink sm:text-2xl md:text-[1.65rem] md:leading-snug">
+    <figure className="my-10 border-y border-tfa-ink/25 py-6 sm:my-12 sm:py-8">
+      <blockquote className="max-w-[36ch]">
+        <p className="font-serif text-[1.6rem] leading-[1.3] font-medium tracking-[-0.015em] text-tfa-red sm:text-[1.9rem]">
           {text}
         </p>
       </blockquote>
@@ -28,7 +14,7 @@ function PullQuote({ text }: { text: string }) {
 
 export function ArticleBody({ body }: { body: ArticleBlock[] }) {
   return (
-    <div className="article-body space-y-5 text-[1.05rem] leading-[1.75] text-tfa-ink sm:text-lg">
+    <div className="article-body space-y-6 text-lg leading-[1.8] text-tfa-ink sm:text-[1.2rem]">
       {body.map((block, i) => {
         if (block._type === "pullQuote") {
           return <PullQuote key={i} text={block.text} />;
@@ -39,7 +25,7 @@ export function ArticleBody({ body }: { body: ArticleBlock[] }) {
           return (
             <h2
               key={i}
-              className="mt-10 mb-4 font-serif text-2xl font-semibold text-tfa-ink sm:text-3xl"
+              className="mt-10 mb-4 font-serif text-2xl leading-tight font-semibold tracking-[-0.015em] text-tfa-ink sm:text-3xl"
             >
               {text}
             </h2>

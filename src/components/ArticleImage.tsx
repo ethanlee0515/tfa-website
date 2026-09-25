@@ -16,7 +16,9 @@ export function ArticleImage({
 
   return (
     <figure className={className}>
-      <div className={`relative overflow-hidden bg-tfa-charcoal/10 ${aspectClass}`}>
+      <div
+        className={`relative overflow-hidden bg-tfa-charcoal/10 ${aspectClass}`}
+      >
         <Image
           src={article.image}
           alt={article.imageAlt ?? article.title}
@@ -25,10 +27,9 @@ export function ArticleImage({
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
       </div>
       {article.imageCredit && (
-        <figcaption className="mt-2 font-display text-[0.6rem] tracking-wider text-tfa-muted uppercase">
+        <figcaption className="mt-3 font-display text-[11px] leading-relaxed text-tfa-muted">
           Illustration: {article.imageCredit}
         </figcaption>
       )}

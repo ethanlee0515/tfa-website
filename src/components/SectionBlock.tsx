@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Article, Section } from "@/lib/types";
-import { SECTION_LABELS, SECTION_ACCENT } from "@/lib/types";
+import { SECTION_LABELS } from "@/lib/types";
 import { ArticleCard } from "./ArticleCard";
 
 export function SectionBlock({
@@ -11,33 +11,45 @@ export function SectionBlock({
   articles: Article[];
 }) {
   if (!articles.length) return null;
-  const accent = SECTION_ACCENT[section];
   const [lead, ...rest] = articles;
-
   return (
-    <section className={`${accent.bg} border-y border-tfa-ink/8 py-12 sm:py-14`}>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex items-end justify-between gap-4 border-b border-tfa-ink/10 pb-4">
-          <div>
-            <div className={`mb-2 h-1 w-12 ${accent.bar}`} />
-            <h2 className="font-display text-2xl font-bold tracking-[0.08em] uppercase sm:text-3xl">
-              {SECTION_LABELS[section]}
-            </h2>
+    <section
+      id={section}
+      aria-labelledby={`${section}-heading`}
+      className="page-shell py-9 sm:py-12"
+    >
+      <div className="flex items-baseline justify-between gap-4 border-t-2 border-tfa-ink pt-4">
+        <h2 id={`${section}-heading`} className="section-heading">
+          {SECTION_LABELS[section]}
+        </h2>
+        <Link href={`/${section}`} className="editorial-link shrink-0">
+          View section <span aria-hidden="true">↗</span>
+        </Link>
+      </div>
+      <div className="mt-7 grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
+        <ArticleCard article={lead} featured layout="vertical" />
+        {rest.length > 0 && (
+          <div className="divide-y divide-tfa-rule border-t border-tfa-rule lg:border-t-0 lg:border-l lg:pl-10">
+            {rest.map((article, index) => (
+              <div
+                key={article._id}
+                className={`py-6 ${index === 0 ? "lg:pt-0" : ""}`}
+              >
+                <ArticleCard article={article} layout="horizontal" />
+              </div>
+            ))}
+            <p className="pt-5 font-display text-xs leading-relaxed text-tfa-muted">
+              More perspectives in{" "}
+              <Link
+                href={`/${section}`}
+                className="underline underline-offset-4 hover:text-tfa-red"
+              >
+                {SECTION_LABELS[section]}
+              </Link>
+              .
+            </p>
           </div>
-          <Link
-            href={`/${section}`}
-            className={`shrink-0 font-display text-[0.65rem] font-semibold tracking-[0.15em] uppercase ${accent.text} hover:underline`}
-          >
-            All {SECTION_LABELS[section]} →
-          </Link>
-        </div>
-
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          <ArticleCard article={lead} featured layout="vertical" />
-          {rest.map((article) => (
-            <ArticleCard key={article._id} article={article} layout="horizontal" />
-          ))}
-        </div>
+        )}
       </div>
     </section>
   );

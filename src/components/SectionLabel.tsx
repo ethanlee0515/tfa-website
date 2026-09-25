@@ -8,9 +8,7 @@ export function SectionLabel({
   className?: string;
 }) {
   return (
-    <span
-      className={`font-display text-[0.65rem] font-semibold tracking-[0.22em] text-tfa-red uppercase sm:text-xs ${className}`}
-    >
+    <span className={`eyebrow text-tfa-red ${className}`}>
       {SECTION_LABELS[section]}
     </span>
   );

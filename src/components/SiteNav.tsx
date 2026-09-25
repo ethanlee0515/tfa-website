@@ -1,49 +1,39 @@
+"use client";
+
 import Link from "next/link";
-import { SECTIONS, SECTION_LABELS, type Section } from "@/lib/types";
+import { usePathname } from "next/navigation";
+import { SECTIONS, SECTION_LABELS } from "@/lib/types";
 
 export function SiteNav({ variant = "light" }: { variant?: "light" | "dark" }) {
-  const isDark = variant === "dark";
-
+  const pathname = usePathname();
+  const links = [
+    ...SECTIONS.map((section) => ({
+      href: `/${section}`,
+      label: SECTION_LABELS[section],
+    })),
+    { href: "/about", label: "About the publication" },
+    { href: "/login", label: "Editors" },
+  ];
   return (
     <nav
-      className={`border-y ${
-        isDark ? "border-white/20" : "border-tfa-ink/10"
-      }`}
       aria-label="Sections"
+      className={`border-t-2 border-b border-t-current border-b-current/30 ${variant === "dark" ? "text-tfa-paper" : "text-tfa-ink"}`}
     >
-      <ul className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-2 px-4 py-3 font-display text-[0.7rem] font-semibold tracking-[0.18em] uppercase sm:gap-x-10 sm:text-xs">
-        {SECTIONS.map((section: Section) => (
-          <li key={section}>
+      <ul className="flex flex-wrap gap-x-5 font-display text-xs font-semibold sm:gap-x-8">
+        {links.map(({ href, label }) => (
+          <li
+            key={href}
+            className={href === "/about" ? "sm:ml-auto" : undefined}
+          >
             <Link
-              href={`/${section}`}
-              className={`transition-colors hover:text-tfa-red ${
-                isDark ? "text-white/90" : "text-tfa-ink"
-              }`}
+              href={href}
+              aria-current={pathname === href ? "page" : undefined}
+              className={`inline-flex min-h-11 items-center border-b-2 pt-0.5 hover:text-tfa-red ${pathname === href ? "border-tfa-red text-tfa-red" : "border-transparent"}`}
             >
-              {SECTION_LABELS[section]}
+              {label}
             </Link>
           </li>
         ))}
-        <li>
-          <Link
-            href="/about"
-            className={`transition-colors hover:text-tfa-red ${
-              isDark ? "text-white/90" : "text-tfa-ink"
-            }`}
-          >
-            About
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/login"
-            className={`transition-colors hover:text-tfa-red ${
-              isDark ? "text-white/70" : "text-tfa-muted"
-            }`}
-          >
-            Editors
-          </Link>
-        </li>
       </ul>
     </nav>
   );
