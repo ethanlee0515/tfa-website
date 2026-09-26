@@ -146,11 +146,8 @@ export const DEFAULT_BOARD_SECTIONS: { title: string; members: BoardMember[] }[]
         { name: "Aiden Shou", role: "Associate", classYear: "28" },
         { name: "Dhruv Soni", role: "Associate", classYear: "28" },
         { name: "Sawyer Nordberg", role: "Associate", classYear: "29" },
+        { name: "Noah Kelly", role: "Associate" },
       ],
-    },
-    {
-      title: "International Associates",
-      members: [{ name: "Noah Kelly", role: "International Associate" }],
     },
     {
       title: "Graphics",

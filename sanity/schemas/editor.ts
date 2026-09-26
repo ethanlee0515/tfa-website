@@ -31,7 +31,6 @@ export const editor = defineType({
           "Section Editors",
           "Senior Columnists",
           "Associates",
-          "International Associates",
           "Graphics",
         ],
       },

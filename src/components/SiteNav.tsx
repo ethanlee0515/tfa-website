@@ -12,7 +12,6 @@ export function SiteNav({ variant = "light" }: { variant?: "light" | "dark" }) {
       label: SECTION_LABELS[section],
     })),
     { href: "/about", label: "About the publication" },
-    { href: "/login", label: "Editors" },
   ];
   return (
     <nav
