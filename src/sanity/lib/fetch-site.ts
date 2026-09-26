@@ -53,6 +53,7 @@ export async function fetchBoardEditors(): Promise<
       "Section Editors",
       "Senior Columnists",
       "Associates",
+      "International Associates",
       "Graphics",
     ];
     const bySection = new Map<string, BoardMember[]>();

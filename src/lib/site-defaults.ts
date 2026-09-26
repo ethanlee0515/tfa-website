@@ -149,6 +149,10 @@ export const DEFAULT_BOARD_SECTIONS: { title: string; members: BoardMember[] }[]
       ],
     },
     {
+      title: "International Associates",
+      members: [{ name: "Noah Kelly", role: "International Associate" }],
+    },
+    {
       title: "Graphics",
       members: [
         { name: "Teri Kim", role: "Graphics Editor", classYear: "27" },

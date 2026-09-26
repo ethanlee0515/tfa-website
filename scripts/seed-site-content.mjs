@@ -129,6 +129,7 @@ const board = [
   { name: "Aiden Shou", role: "Associate", classYear: "28", boardSection: "Associates", sortOrder: 1 },
   { name: "Dhruv Soni", role: "Associate", classYear: "28", boardSection: "Associates", sortOrder: 2 },
   { name: "Sawyer Nordberg", role: "Associate", classYear: "29", boardSection: "Associates", sortOrder: 3 },
+  { name: "Noah Kelly", role: "International Associate", boardSection: "International Associates", sortOrder: 1 },
   { name: "Teri Kim", role: "Graphics Editor", classYear: "27", boardSection: "Graphics", sortOrder: 1 },
   { name: "Jennifer Kim", role: "Graphics Associate", classYear: "28", boardSection: "Graphics", sortOrder: 2 },
   { name: "Bella Wu", role: "Graphics Associate", classYear: "28", boardSection: "Graphics", sortOrder: 3 },
